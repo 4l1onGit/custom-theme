@@ -21,9 +21,48 @@ $parentId = wp_get_post_parent_id(get_the_ID());
             <?php endif; ?>
         </div>
     </div>
+    <div class="flex w-full h-full">
 
-    <div class="container mx-auto bg-white bg-opacity-90 p-8  ">
-        <p class="text-md font-medium "> <?php  the_content()  ?></p>
+        <div class="container mx-auto bg-white bg-opacity-90 p-8 w-3/4  h-full">
+            <p class="text-md font-medium "> <?php  the_content()  ?></p>
+        </div>
+        <?php if($parentId || get_pages(array('child_of' => get_the_ID()))) { ?>
+        <div class="w-1/4  p-8">
+            <h2 class="bg-yellow-300 text-yellow-950 font-semibold px-4 py-2"><a
+                    href="<?php echo get_permalink($parentId); ?>">
+                    <?php echo get_the_title($parentId); ?>
+
+                </a></h2>
+            <ul class="text-md font-medium mt-1  text-white">
+                <?php 
+                if ($parentId) {
+                    $linkID = $parentId;
+                 } else {
+                    $linkID = get_the_ID();
+                 }
+                 $pages = get_pages(array(
+                    'title_li' => NULL,
+                    'child_of' => $linkID,
+                 ));
+
+                 if ($pages) {
+                    foreach ($pages as $page) {
+                        $pageTitle = $page->post_title;
+                        $pageLink = get_permalink($page->ID);
+                        ?>
+                <li
+                    class="bg-blue-500 px-4 py-2 hover:bg-blue-600 hover:scale-105 hover:shadow-lg transition-all duration-125 ease-in">
+                    <a href="<?php echo $pageLink; ?>"><?php echo $pageTitle; ?></a>
+                </li>
+                <?php
+                    }
+                 }
+
+                ?>
+
+            </ul>
+        </div>
+        <?php } ?>
     </div>
 </div>
 
