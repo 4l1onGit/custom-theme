@@ -16,8 +16,32 @@ get_header();
         </button>
 
     </div>
-    <div class=" col-span-6 h-[40vh] bg-yellow-200"></div>
-    <div class="col-span-6 h-[40vh]"></div>
+    <div class="md:col-span-6 col-span-12 h-[40vh] bg-yellow-200">
+        <div class="container mx-auto h-full flex flex-col justify-center items-center">
+
+            <h2 class="text-4xl font-bold mb-6">
+                Placeholder
+            </h2>
+            <p class="text-lg text-center max-w-xl">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+            </p>
+        </div>
+    </div>
+    <div class="md:col-span-6 col-span-12 h-[40vh] bg-orange-200">
+        <div class="container mx-auto h-full flex flex-col justify-center items-center">
+            <h2 class="text-4xl font-bold mb-6">Placeholder</h2>
+            <p class="text-lg text-center max-w-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    <div class="col-span-12 h-[100vh] bg-sky-200">
+        <div class="container mx-auto h-full flex flex-col justify-center items-center">
+            <h2 class="text-4xl font-bold mb-6">Placeholder</h2>
+            <p class="text-lg text-center max-w-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
 
 </div>
 <?php

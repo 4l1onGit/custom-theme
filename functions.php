@@ -14,9 +14,29 @@ function custom_theme_assets() {
     );
 
 }
+
+function custom_theme_setup() {
+    register_nav_menu(
+        'header-menu-location',
+        'Header Menu Location'
+    );
+    register_nav_menu(
+        'footer-menu-location',
+        'Footer Menu Location'
+    );
+    add_theme_support('title-tag');
+}
+
+
 add_action('wp_enqueue_scripts', 'custom_theme_assets');
 add_action('after_setup_theme', 'custom_theme_setup');
 
-function custom_theme_setup() {
-    add_theme_support('title-tag');
-}
+add_filter('nav_menu_css_class', function($classes, $item, $args) {
+    if (isset($args->li_class)) {
+        $classes[] = $args->li_class;
+    }
+
+    if (in_array('current-menu-item', $classes) || in_array('current_page_item', $classes)) { $classes[] = 'text-purple-400 font-semibold'; }
+
+    return $classes;
+}, 10, 3);
