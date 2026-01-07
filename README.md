@@ -9,4 +9,7 @@ This repo is focused on learning and experimenting with:
 - Tailwind CSS build workflow
 - General WordPress functionality and tooling
 
-This is an experimental learning environment and not intended for production use.
+This is an experimental learning environment and not intended for production use. 
+
+Live Link: https://purple-bison-587175.hostingersite.com/
+
