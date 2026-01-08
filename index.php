@@ -1,49 +1,64 @@
-<?php 
-get_header(); 
-    ?>
-<div class="grid grid-cols-12">
-    <div class="col-span-12 h-[60vh] bg-black relative flex justify-center items-center">
-        <img src="<?php echo get_theme_file_uri(); ?>/images/hero-image.jpg" alt="Hero Image"
-            class="w-full h-full object-cover opacity-70">
+<?php
+get_header();
+$parentId = wp_get_post_parent_id(get_the_ID());
+?>
+<div class="min-h-screen h-full w-full">
 
-        <h1
-            class="text-white text-center text-5xl font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            Welcome to My Custom Theme
-        </h1>
-        <button
-            class="absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-all duration-75">
-            Get Started
-        </button>
 
+    <div class="relative h-[35vh] w-full mb-12 shadow-lg">
+
+        <img src="<?php echo get_theme_file_uri(); ?>/images/hero-image.jpg" alt="Page Hero Image"
+            class="w-full h-full object-cover brightness-50">
+        <div class="absolute top-1/2  transform -translate-y-1/2 pl-20">
+            <h1 class="text-white text-5xl font-bold">
+                Welcome to the Blog</h1>
+            <span class="text-white font-medium text-xl">Keep up with the latest posts!</span>
+        </div>
+
+
+        <div class="-translate-y-2 text-sm font-semibold">
+            <span class="bg-yellow-400 px-4 py-2 ml-2 text-yellow-800"><a href="<?php echo home_url(); ?>">Back To
+                    Home</a></span>
+            <?php if ($parentId) : ?>
+            <span class="bg-blue-500 px-4 py-2 text-white">Back to
+                <?php echo get_the_title($parentId); ?></span>
+            <?php endif; ?>
+        </div>
     </div>
-    <div class="md:col-span-6 col-span-12 h-[40vh] bg-yellow-200">
-        <div class="container mx-auto h-full flex flex-col justify-center items-center">
+    <div class="grid md:grid-cols-2 grid-cols-1 gap-8 container mx-auto p-8 bg-white bg-opacity-90">
+        <?php 
+        while( have_posts() ) {
+            the_post(); ?>
+        <div
+            class="col-span-1 flex flex-col justify-between border border-gray-300 rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="">
 
-            <h2 class="text-4xl font-bold mb-6">
-                Placeholder
-            </h2>
-            <p class="text-lg text-center max-w-xl">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.
+                <h2
+                    class="text-2xl font-light underline hover:-translate-y-1 duration-150 transition-transform text-blue-950">
+                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                </h2>
+                <div class="text-xs text-yellow-950 font-medium bg-yellow-200 inline-block px-2 py-1 rounded mt-2">
+                    Posted by <?php the_author(); ?> on <?php the_time('F j, Y'); ?> in
+                    <?php echo get_the_category_list(', '); ?>
+                </div>
+                <div class="pt-4 text-sm font-medium text-gray-700">
+                    <?php the_excerpt(); ?>
+
+                </div>
+            </div>
+            <p><a class="text-sm text-blue-600 hover:underline " href="<?php the_permalink(); ?>">View more</a>
             </p>
         </div>
+        <?php
+        }
+    
+ 
+        ?>
     </div>
-    <div class="md:col-span-6 col-span-12 h-[40vh] bg-orange-200">
-        <div class="container mx-auto h-full flex flex-col justify-center items-center">
-            <h2 class="text-4xl font-bold mb-6">Placeholder</h2>
-            <p class="text-lg text-center max-w-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
-    <div class="col-span-12 h-[100vh] bg-sky-200">
-        <div class="container mx-auto h-full flex flex-col justify-center items-center">
-            <h2 class="text-4xl font-bold mb-6">Placeholder</h2>
-            <p class="text-lg text-center max-w-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
-
+    <?php 
+      echo  paginate_links();
+    ?>
 </div>
 <?php
 get_footer();
-    ?>
+?>

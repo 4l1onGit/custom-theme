@@ -23,7 +23,7 @@ $parentId = wp_get_post_parent_id(get_the_ID());
     </div>
     <div class="flex w-full h-full">
 
-        <div class="container mx-auto bg-white bg-opacity-90 p-8 w-3/4  h-full">
+        <div class="container mx-auto  p-8 w-3/4  h-full">
             <p class="text-md font-medium "> <?php  the_content()  ?></p>
         </div>
         <?php if($parentId || get_pages(array('child_of' => get_the_ID()))) { ?>
