@@ -1,6 +1,7 @@
 # WordPress + Tailwind Practice Theme
 
-A simple practice project exploring custom WordPress theme development with Tailwind CSS integration.  
+A simple practice project exploring custom WordPress theme development with Tailwind CSS integration.
+
 This repo is focused on learning and experimenting with:
 
 - WordPress theme structure
@@ -8,8 +9,14 @@ This repo is focused on learning and experimenting with:
 - Enqueueing scripts and styles
 - Tailwind CSS build workflow
 - General WordPress functionality and tooling
+- WP Queries
+- Custom Post Types
 
-This is an experimental learning environment and not intended for production use. 
+# To be implemented
+
+- Wordpress REST API
+- AJAX
+
+This is an experimental learning environment and not intended for production use.
 
 Live Link: https://purple-bison-587175.hostingersite.com/
-

@@ -40,3 +40,34 @@ add_filter('nav_menu_css_class', function($classes, $item, $args) {
 
     return $classes;
 }, 10, 3);
+
+// Could register the types in mu_plugins to prevent theme switching issues
+function register_custom_post_types() {
+    register_post_type(
+        'event',
+        array(
+            'rewrite' => array('slug' => 'events'),
+            'has_archive' => true,
+            'public' => true,
+ 
+            'show_in_rest' => true,
+            'labels' => array(
+                'name' => 'Events',
+                'add_new_item'=> 'Add New Event',
+                "edit_item" => 'Edit Event',
+                'all_items' => 'All Events',
+                'singular_name' => 'Event',
+            ),
+            'menu_icon' => 'dashicons-calendar',
+            'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields')
+        )
+    );
+}
+
+
+add_theme_support('post-thumbnails'); 
+
+add_action(
+    'init',
+    'register_custom_post_types'
+);
