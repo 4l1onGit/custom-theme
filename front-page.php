@@ -1,6 +1,7 @@
 <?php 
 get_header(); 
     ?>
+<!--- Styling to be improved later --->
 <div class="grid grid-cols-12">
     <div class="col-span-12 h-[60vh] bg-black relative flex flex-col justify-center items-center">
         <img src="<?php echo get_theme_file_uri(); ?>/images/hero-image.jpg" alt="Hero Image"
@@ -24,12 +25,12 @@ get_header();
 
     </div>
     <div class="md:col-span-6 col-span-12 h-[30rem] border-l border-r border-gray-300 bg-gray-50">
-        <div class="container mx-auto h-full flex flex-col justify-center px-8">
+        <div class="container mx-auto h-full flex flex-col justify-between py-10 px-8">
 
             <h2 class="text-2xl font-semibold mb-6 text-center">
                 Latest Blog Posts
             </h2>
-            <div class="flex flex-col">
+            <div class="flex flex-col justify-center items-center space-y-4">
                 <?php
             // Query for latest blog posts
             $latest_posts = new WP_Query(
@@ -42,22 +43,28 @@ get_header();
                 $latest_posts->the_post();
                 ?>
 
-                <div class="mb-4 w-full bg-gray-100 shadow-md h-32 p-4 rounded-md space-y-2 flex flex-1">
-                    <div class="w-3/4">
+                <div class="w-full h-1/2  bg-gray-50 shadow-md rounded-md flex flex-1">
+                    <div class="w-3/4 h-full p-4 flex flex-col justify-between">
+                        <div class="">
 
-                        <h3 class="text-lg"><a class="text-purple-500 underline"
-                                href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                        <p class="text-sm max-w-xl">
-                            <?php echo wp_trim_words( get_the_content(), 20 ); ?> <span
-                                class="text-xs text-purple-600 underline font-light"><a
-                                    href="<?php the_permalink(); ?>">Read
-                                    More</a></span>
-                        </p>
-                        <span class="text-xs font-light"><?php the_date(); ?></span>
+                            <h3 class="text-lg"><a class="text-purple-500 underline"
+                                    href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                            <p class="text-sm max-w-xl mt-2">
+                                <?php echo has_excerpt() ? wp_trim_words( get_the_excerpt(), 20 ) : wp_trim_words( get_the_content(), 20 ); ?>
+                                <span class="text-xs text-purple-600 underline font-light"><a
+                                        href="<?php the_permalink(); ?>">Read
+                                        More</a></span>
+
+                            </p>
+                        </div>
+                        <span class="text-xs font-light"><?php echo get_the_date(); ?></span>
                     </div>
+
                     <?php if (has_post_thumbnail()) { ?>
+
                     <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'thumbnail'); ?>"
-                        alt="<?php the_title(); ?>" class="mt-2 object-cover w-1/4 rounded-md" />
+                        alt="<?php the_title(); ?>" class="object-cover  rounded-r-md w-1/4" />
+
                     <?php } ?>
                 </div>
 
@@ -78,11 +85,11 @@ get_header();
         </div>
     </div>
     <div class="md:col-span-6 col-span-12 h-[30rem] bg-green-50">
-        <div class="container mx-auto h-full flex flex-col justify-center px-8">
+        <div class="container mx-auto h-full flex flex-col justify-between py-10 px-8">
             <h2 class="text-2xl font-semibold mb-6 text-center ">
                 Latest Events
             </h2>
-            <div class="flex flex-col">
+            <div class="flex flex-col justify-center items-center space-y-4">
                 <?php
             // Query for latest blog posts
             $latest_events = new WP_Query(
@@ -96,22 +103,28 @@ get_header();
                 $latest_events->the_post();
                 ?>
 
-                <div class="mb-4 w-full h-32 p-4 bg-gray-50 shadow-md rounded-md space-y-2 flex flex-1">
-                    <div class="w-3/4">
-                        <h3 class="text-lg"><a class="text-purple-500 underline"
-                                href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                        <p class="text-sm max-w-xl">
-                            <?php echo has_excerpt() ? wp_trim_words( get_the_excerpt(), 20 ) : wp_trim_words( get_the_content(), 20 ); ?>
-                            <span class="text-xs text-purple-600 underline font-light"><a
-                                    href="<?php the_permalink(); ?>">Read
-                                    More</a></span>
+                <div class="w-full h-1/2 bg-gray-50 shadow-md rounded-md flex flex-1">
+                    <div class="w-3/4 h-full p-4 flex flex-col justify-between">
+                        <div class="">
 
-                        </p>
-                        <span class="text-xs font-light"><?php the_date(); ?></span>
+                            <h3 class="text-lg"><a class="text-purple-500 underline"
+                                    href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                            <p class="text-sm max-w-xl mt-2">
+                                <?php echo has_excerpt() ? wp_trim_words( get_the_excerpt(), 20 ) : wp_trim_words( get_the_content(), 20 ); ?>
+                                <span class="text-xs text-purple-600 underline font-light"><a
+                                        href="<?php the_permalink(); ?>">Read
+                                        More</a></span>
+
+                            </p>
+                        </div>
+                        <span class="text-xs font-light"><?php echo get_the_date(); ?></span>
                     </div>
+
                     <?php if (has_post_thumbnail()) { ?>
+
                     <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'thumbnail'); ?>"
-                        alt="<?php the_title(); ?>" class="object-cover w-1/4 rounded-md" />
+                        alt="<?php the_title(); ?>" class="rounded-r-md w-1/4" />
+
                     <?php } ?>
                 </div>
 
