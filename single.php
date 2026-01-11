@@ -11,7 +11,7 @@ get_header();
     <div class="relative h-[35vh] w-full mb-12 shadow-lg">
 
         <img src="<?php echo get_theme_file_uri(); ?>/images/hero-image.jpg" alt="Page Hero Image"
-            class="w-full h-full object-cover ">
+            class="w-full h-full object-cover brightness-50">
         <h1 class="text-white text-center text-5xl font-bold absolute top-1/2  transform -translate-y-1/2 pl-20">
             <?php the_title(); ?></h1>
         <div class="-translate-y-2 text-sm font-semibold">
@@ -36,4 +36,5 @@ get_header();
 <?php
     }
 get_footer();
+
     ?>
