@@ -50,7 +50,7 @@ get_header();
                             <h3 class="text-lg"><a class="text-purple-500 underline"
                                     href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                             <p class="text-sm max-w-xl mt-2">
-                                <?php echo has_excerpt() ? wp_trim_words( get_the_excerpt(), 20 ) : wp_trim_words( get_the_content(), 20 ); ?>
+                                <?php echo has_excerpt() ? wp_trim_words( get_the_excerpt(), 15 ) : wp_trim_words( get_the_content(), 15 ); ?>
                                 <span class="text-xs text-purple-600 underline font-light"><a
                                         href="<?php the_permalink(); ?>">Read
                                         More</a></span>
@@ -110,7 +110,7 @@ get_header();
                             <h3 class="text-lg"><a class="text-purple-500 underline"
                                     href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                             <p class="text-sm max-w-xl mt-2">
-                                <?php echo has_excerpt() ? wp_trim_words( get_the_excerpt(), 20 ) : wp_trim_words( get_the_content(), 20 ); ?>
+                                <?php echo has_excerpt() ? wp_trim_words( get_the_excerpt(), 15 ) : wp_trim_words( get_the_content(), 15 ); ?>
                                 <span class="text-xs text-purple-600 underline font-light"><a
                                         href="<?php the_permalink(); ?>">Read
                                         More</a></span>
