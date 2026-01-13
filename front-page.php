@@ -85,18 +85,29 @@ get_header();
         </div>
     </div>
     <div class="md:col-span-6 col-span-12 h-[30rem] bg-green-50">
-        <div class="container mx-auto h-full flex flex-col justify-between py-10 px-8">
+        <div class="container mx-auto h-full flex  flex-col justify-between py-10 px-8">
             <h2 class="text-2xl font-semibold mb-6 text-center ">
                 Latest Events
             </h2>
-            <div class="flex flex-col justify-center items-center space-y-4">
+            <div class="flex flex-col justify-center items-center space-y-4 ">
                 <?php
+                $today= date('Ymd');
             // Query for latest blog posts
             $latest_events = new WP_Query(
                 array(
                     'post_type' => 'event',
                     'posts_per_page' => 2,
-                  
+                    'orderby' => 'meta_value',
+                    'meta_query' => array(
+                       array(
+                           'key' => 'event_date',
+                           'compare' => '>=',
+                           'value' => $today,
+                           'type' => 'DATE',
+                       ),
+                    ),
+                 
+                    'meta_key' => 'event_date',
                 )
             );
             while( $latest_events->have_posts() ) {
@@ -106,7 +117,15 @@ get_header();
                 <div class="w-full h-1/2 bg-gray-50 shadow-md rounded-md flex flex-1">
                     <div class="w-3/4 h-full p-4 flex flex-col justify-between">
                         <div class="">
+                            <?php $eventDate = new DateTime(get_field('event_date'))?>
 
+                            <div class="flex justify-between">
+                                <span
+                                    class="bg-purple-400 text-purple-800  text-xs font-medium mr-2 px-2.5 py-0.5 rounded my-0.5">
+                                    <?php echo $eventDate->format('F j, Y'); ?>
+                                </span>
+
+                            </div>
                             <h3 class="text-lg"><a class="text-purple-500 underline"
                                     href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                             <p class="text-sm max-w-xl mt-2">
@@ -117,7 +136,7 @@ get_header();
 
                             </p>
                         </div>
-                        <span class="text-xs font-light"><?php echo get_the_date(); ?></span>
+                        <span class="text-xs font-light">Posted: <?php echo get_the_date(); ?></span>
                     </div>
 
                     <?php if (has_post_thumbnail()) { ?>

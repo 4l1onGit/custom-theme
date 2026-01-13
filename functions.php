@@ -59,7 +59,7 @@ function register_custom_post_types() {
                 'singular_name' => 'Event',
             ),
             'menu_icon' => 'dashicons-calendar',
-            'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields')
+            'supports' => array('title', 'editor', 'thumbnail', 'excerpt')
         )
     );
 }
