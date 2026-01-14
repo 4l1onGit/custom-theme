@@ -21,24 +21,30 @@ This project demonstrates how to build a clean, maintainable theme using Tailwin
 ## 📂 Project Structure
 
 theme/
-├── dist
+├── dist/
 │   └── main.css
+├── images/
+│   └── hero-image.jpg
+├── src/
+│   └── css/
+│       └── style.css
+├── archive-event.php
+├── archive.php
 ├── footer.php
+├── front-page.php
 ├── functions.php
 ├── header.php
-├── images
-│   └── hero-image.jpg
 ├── index.php
-├── package.json
-├── package-lock.json
 ├── page.php
 ├── postcss.config.js
+├── package.json
+├── package-lock.json
 ├── README.md
+├── single-event.php
 ├── single.php
-├── src
-│   └── css
 ├── style.css
-└── tailwind.config.js
+├── tailwind.config.js
+
 
 ---
 
