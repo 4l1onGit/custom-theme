@@ -3,6 +3,9 @@
 A custom WordPress theme built to strengthen and showcase modern WordPress development skills.  
 This project demonstrates how to build a clean, maintainable theme using Tailwind CSS, PHP best practices, and a modern front‑end workflow.
 
+### Looking for a minimal tailwind + wp starter theme? ###
+New barebones version -> [WP + Tailwind Barebones](https://github.com/4l1onGit/wp-tailwind-barebones)
+
 ---
 
 ## 🚀 Features
