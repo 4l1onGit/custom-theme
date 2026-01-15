@@ -22,7 +22,7 @@ New barebones version -> [WP + Tailwind Barebones](https://github.com/4l1onGit/w
 ---
 
 ## 📂 Project Structure
-
+```
 theme/
 ├── dist/
 │   └── main.css
@@ -47,7 +47,7 @@ theme/
 ├── single.php
 ├── style.css
 ├── tailwind.config.js
-
+```
 
 ---
 
